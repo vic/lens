@@ -8,6 +8,8 @@ defmodule LensTest do
   end
 
   describe "key" do
+    test "get", do: assert Lens.get(%{a: :b}, Lens.key(:a)) == :b
+
     test "to_list", do: assert Lens.to_list(%{a: :b}, Lens.key(:a)) == [:b]
 
     test "each" do

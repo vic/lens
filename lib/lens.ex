@@ -108,6 +108,10 @@ defmodule Lens do
     changed
   end
 
+  def get(data, lens) do
+    to_list(data, lens) |> fn [head | _] -> head end.()
+  end
+
   def get_and_map(data, lens, fun) do
     lens.(data, fun)
   end
